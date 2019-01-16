@@ -35,19 +35,37 @@
   `name`: String
   `pages`: Number
   */
-  // ?
-  console.log( '\nLista de livros:' );
+  var book1 = {
+    name: 'Livro 1',
+    pages: 30
+  }
 
+  books.push(book1);
+
+  var book2 = Object.create(book1);
+
+  book2.name = 'Livro 2';
+  book2.pages = 40;
+  books.push(book2);
+
+  var book3 = Object.create(book1);
+
+  book3.name = 'Livro 3';
+  book3.pages = 50;
+  books.push(book3);  
+  
+  console.log( '\nLista de livros:' );
   /*
   Mostre no console todos os livros.
   */
-  // ?
+  for(var i = 0; i < books.length; i++) {
+    console.log(books[i].name);
+  }
 
   console.log( '\nLivro que está sendo removido:' );
   /*
   Remova o último livro, e mostre-o no console.
   */
-  // ?
 
   console.log( '\nAgora sobraram somente os livros:' );
   /*
