@@ -81,7 +81,6 @@
   2. Para verificar se o e-mail é válido use a função `isValidEmail`, passando
   o e-mail que foi entrado no campo de "Email" por parâmetro. (A função
   `isValidEmail` será criada logo abaixo).
-
   3. Se tudo estiver OK, pergunte ao usuário:
       - "Tem certeza que deseja enviar o formulário?"
   Se for confirmado, mostre um alerta com a mensagem:
