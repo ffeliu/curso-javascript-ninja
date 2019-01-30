@@ -36,14 +36,14 @@
   - Selecione o input de "Nome", atribuindo-o à uma variável chamada
   `$inputUsername`.
   */
-  var $inputUsername = doc.querySelector('[type="text"]');
+  var $inputUsername = doc.querySelector('input[type="text"]');
 
 
   /*
   - Selecione o input de "Email", atribuindo-o à uma variável chamada
   `$inputEmail`.
   */
-  var $inputEmail = doc.querySelector('[type="email"]')
+  var $inputEmail = doc.querySelector('input[type="email"]')
 
   /*
   - Selecione o campo de "Mensagem", atribuindo-o à uma variável chamada
@@ -88,7 +88,25 @@
   Caso contrário, mostre um alerta com a mensagem:
       - "Não enviado."
   */
-  // ?
+  $button.addEventListener( 'click', function(event) {
+
+    event.preventDefault();
+
+    if(!$inputUsername.value)
+      return alert('Preencha o nome do usuário!');
+
+    if(!$inputEmail.value)
+      return alert('Preencha o e-mail!');
+
+    if(!$message.value)
+      return alert('Preencha a mensagem!');
+
+    if(!isValidEmail($inputEmail.value))
+      return alert('Entre com um e-mail válido!');
+
+    confirm('Tem certeza que deseja enviar o formulário?') === true ? alert('Enviado com sucesso!') : alert('Não enviado');
+
+  }, false);
 
   /*
   Crie uma função chamada `isValidEmail`, que será usada na validação do
@@ -116,7 +134,15 @@
       - "rita-marica@titica.a.b"
       - "agua_@evida.br.com"
   */
-  // ?
+ function isValidEmail(email) {
+
+  //var regexEmail = /([A-Za-z0-9+._]*)@([A-Za-z0-9_]+)\.([A-Za-z0-9]{2,})\.([A-Za-z0-9]{2})?/gmi;
+  var regexEmail = /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/gm;
+
+  var result = regexEmail.test(email);
+
+  return result;
+}
 
 })(window, document);
 
